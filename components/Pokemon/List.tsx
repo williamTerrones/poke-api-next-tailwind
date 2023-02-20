@@ -9,13 +9,15 @@ interface Props {
   pokemons: SmallPokemon[]
 }
 
-const Items = ({ pokemons }: Props) => <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-  {
-    pokemons.map((e, i) => (
-      <PokemonCard key={i} pokemon={e} />
-    ))
-  }
-</div>
+const Items = ({ pokemons }: Props) => (
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+    {
+      pokemons.map((e, i) => (
+        <PokemonCard key={i} pokemon={e} />
+      ))
+    }
+  </div>
+)
 
 const PokemonList: FC<Props> = ({ pokemons }) => {
 
@@ -36,9 +38,9 @@ const PokemonList: FC<Props> = ({ pokemons }) => {
         }} />
       </div>
       {
-        hasPokemons 
-        ? <Items pokemons={pokemonsList} /> 
-        : <PokemonWithoutResults />
+        hasPokemons
+          ? <Items pokemons={pokemonsList} />
+          : <PokemonWithoutResults />
       }
     </div>
   )
